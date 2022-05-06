@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'about',
+    'main',
 ]
 
 MIDDLEWARE = [
@@ -117,6 +118,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 STATIC_URL = 'static/'
+<<<<<<< HEAD
 STATIC_ROOT = 'static/'
 
 STATICFILES_DIRS = [
@@ -126,6 +128,15 @@ STATICFILES_DIRS = [
 ]
 
 MEDIA_URL = '/media/'
+=======
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'seogram/static')]
+
+
+MEDIA_URL = 'media/'
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+>>>>>>> 0076058174a555eca91420f504db6f6c5e4609fd
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
