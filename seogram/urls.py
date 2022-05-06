@@ -24,9 +24,9 @@ from . import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('about/', about),
+    path('about/', about, name='about'),
     path('', main_page, name='home'),
-    path('service/', service),
-    path('blog/', blog),
+    path('service/', service, name='service'),
+    path('blog/', blog, name='blog'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
