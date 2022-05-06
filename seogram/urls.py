@@ -16,6 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from about.views import about
+from service.views import service
 from main.views import main_page
 from django.conf.urls.static import static
 from . import settings
@@ -24,5 +25,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('about/', about),
     path('', main_page, name='home'),
+    path('service/', service),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
