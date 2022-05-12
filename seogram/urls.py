@@ -17,16 +17,23 @@ from django.contrib import admin
 from django.urls import path
 from about.views import about
 from service.views import service
-from blog.views import blog
 from main.views import main_page
+from contact.views import contact_form
+from blog.views import Blog, Blog_detail
+from account.views import register, auth
 from django.conf.urls.static import static
+from account.views import logout_user
 from . import settings
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('about/', about, name='about'),
-    path('', main_page, name='home'),
-    path('service/', service, name='service'),
-    path('blog/', blog, name='blog'),
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-
+                  path('admin/', admin.site.urls),
+                  path('about/', about, name='about'),
+                  path('', main_page, name='home'),
+                  path('service/', service, name='service'),
+                  path('blog/', Blog.as_view(), name='blog'),
+                  path('blog/<int:key>/', Blog_detail.as_view(), name='detail'),
+                  path('contact/', contact_form, name='contact'),
+                  path('register/', register, name='register'),
+                  path('login/', auth, name='login'),
+                  path('logout/', logout_user, name='logout'),
+              ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
